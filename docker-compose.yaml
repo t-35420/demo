@@ -1,0 +1,25 @@
+services:
+  mysql:
+    image: mysql:8.0
+    # 本機改用 3307 連線到 Docker 容器內的 MySQL 3306
+    ports:
+      - "3307:3306"
+    container_name: demo-mysql
+    environment:
+      # 用 ${} 讀取 .env 檔的設定
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - mysql_data:/var/lib/mysql  
+
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - "6379:6379"
+    container_name: demo-redis
+    volumes:
+      - redis_data:/data
+  
+volumes:
+  mysql_data:
+  redis_data:
