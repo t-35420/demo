@@ -1,0 +1,19 @@
+# Maven
+target/
+
+# VS Code
+.vscode/
+HELP.md
+
+# Environment
+.env
+
+# Spring Boot
+application.properties
+
+# Logs
+*.log
+
+# OS Files
+Thumbs.db
+Desktop.ini
